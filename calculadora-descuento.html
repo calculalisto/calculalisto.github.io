@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Descuento | CalculaListo</title>
+
+<meta name="description" content="Calculadora de descuentos online. Descubre cuánto ahorras y cuál es el precio final de un producto.">
+
+<link rel="stylesheet" href="style.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GG8VCF73LH"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-GG8VCF73LH');
+</script>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">CalculaListo</a>
+<a href="calculadora-porcentaje.html">Porcentaje</a>
+<a href="calculadora-iva.html">IVA</a>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Calculadora de descuento</h1>
+
+<p>Calcula cuánto dinero ahorras y cuánto pagarás después de aplicar un descuento.</p>
+
+<label>Precio original (€)</label>
+<input id="precio" type="number" step="any" placeholder="Ej. 80">
+
+<label>Descuento (%)</label>
+<input id="descuento" type="number" step="any" placeholder="Ej. 25">
+
+<button onclick="calcular()">Calcular descuento</button>
+
+<div id="resultado" class="resultado"></div>
+
+<h2>Ejemplo</h2>
+
+<p>
+Si un producto cuesta 80 € y tiene un descuento del 25%, el ahorro será de 20 € y el precio final será de 60 €.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© CalculaListo · <a href="index.html">Más calculadoras</a>
+</footer>
+
+<script>
+function calcular() {
+
+const precio = Number(document.getElementById("precio").value);
+const descuento = Number(document.getElementById("descuento").value);
+
+if (!Number.isFinite(precio) || !Number.isFinite(descuento)) {
+document.getElementById("resultado").textContent = "Introduce los valores.";
+return;
+}
+
+const ahorro = precio * descuento / 100;
+const final = precio - ahorro;
+
+document.getElementById("resultado").textContent =
+"Ahorro: " + ahorro.toFixed(2) +
+" € · Precio final: " + final.toFixed(2) + " €";
+}
+</script>
+
+</body>
+</html>
