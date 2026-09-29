@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de IVA | CalculaListo</title>
+
+<meta name="description" content="Calculadora de IVA online gratis. Calcula el IVA y el precio final a partir de cualquier importe.">
+
+<link rel="stylesheet" href="style.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GG8VCF73LH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GG8VCF73LH');
+</script>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">CalculaListo</a>
+<a href="calculadora-porcentaje.html">Porcentaje</a>
+<a href="calculadora-descuento.html">Descuento</a>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Calculadora de IVA</h1>
+
+<p>Calcula cuánto IVA corresponde a un precio y cuál es el precio final.</p>
+
+<label>Precio sin IVA (€)</label>
+<input id="precio" type="number" step="any" placeholder="Ej. 100">
+
+<label>Tipo de IVA (%)</label>
+<input id="iva" type="number" step="any" value="21">
+
+<button onclick="calcular()">Calcular IVA</button>
+
+<div id="resultado" class="resultado"></div>
+
+<h2>¿Cómo se calcula el IVA?</h2>
+
+<p>
+Para calcular el IVA se multiplica el precio por el porcentaje de IVA y se divide entre 100.
+</p>
+
+<p>
+Esta calculadora permite introducir el tipo de IVA que quieras utilizar.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© CalculaListo · <a href="index.html">Más calculadoras</a>
+</footer>
+
+<script>
+function calcular() {
+
+const precio = Number(document.getElementById("precio").value);
+const iva = Number(document.getElementById("iva").value);
+
+if (!Number.isFinite(precio) || !Number.isFinite(iva)) {
+document.getElementById("resultado").textContent = "Introduce los valores.";
+return;
+}
+
+const cantidadIVA = precio * iva / 100;
+const total = precio + cantidadIVA;
+
+document.getElementById("resultado").textContent =
+"IVA: " + cantidadIVA.toFixed(2) +
+" € · Precio final: " + total.toFixed(2) + " €";
+}
+</script>
+
+</body>
+</html>
