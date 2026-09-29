@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Porcentaje | CalculaListo</title>
+
+<meta name="description" content="Calculadora de porcentaje online gratis. Calcula rápidamente cualquier porcentaje de una cantidad.">
+
+<link rel="stylesheet" href="style.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GG8VCF73LH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GG8VCF73LH');
+</script>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">CalculaListo</a>
+<a href="calculadora-iva.html">IVA</a>
+<a href="calculadora-descuento.html">Descuento</a>
+<a href="calculadora-edad.html">Edad</a>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Calculadora de porcentaje</h1>
+
+<p>
+Calcula fácilmente qué porcentaje representa una cantidad o cuánto es un porcentaje de un número.
+</p>
+
+<label>Porcentaje (%)</label>
+<input id="porcentaje" type="number" step="any" placeholder="Ej. 20">
+
+<label>Cantidad</label>
+<input id="cantidad" type="number" step="any" placeholder="Ej. 150">
+
+<button onclick="calcular()">Calcular</button>
+
+<div id="resultado" class="resultado"></div>
+
+<h2>¿Cómo se calcula un porcentaje?</h2>
+
+<p>
+Para calcular un porcentaje se multiplica la cantidad por el porcentaje y se divide entre 100.
+</p>
+
+<p>
+Por ejemplo, el 20% de 150 es:
+</p>
+
+<p><strong>150 × 20 ÷ 100 = 30</strong></p>
+
+</div>
+
+</div>
+
+<footer>
+© CalculaListo · <a href="index.html">Volver a todas las calculadoras</a>
+</footer>
+
+<script>
+function calcular() {
+
+const porcentaje = Number(document.getElementById("porcentaje").value);
+const cantidad = Number(document.getElementById("cantidad").value);
+
+if (!Number.isFinite(porcentaje) || !Number.isFinite(cantidad)) {
+document.getElementById("resultado").textContent = "Introduce los dos valores.";
+return;
+}
+
+const resultado = porcentaje * cantidad / 100;
+
+document.getElementById("resultado").textContent =
+porcentaje + "% de " + cantidad + " = " + resultado;
+}
+</script>
+
+</body>
+</html>
