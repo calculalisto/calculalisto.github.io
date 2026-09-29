@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora de porcentajes | CalculaListo</title>
+
+  <meta name="description"
+        content="Calculadora de porcentajes online gratis. Calcula porcentajes, descuentos, aumentos y diferencias fácilmente.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      color: #17202a;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 20px;
+    }
+
+    .nav {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #17202a;
+    }
+
+    .logo span {
+      color: #1769ff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .back {
+      color: #1769ff;
+      text-decoration: none;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      margin-top: 25px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 18px;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 17px;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 14px 22px;
+      background: #1769ff;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .resultado {
+      margin-top: 25px;
+      padding: 20px;
+      background: #eef5ff;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .info {
+      margin-top: 45px;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      Calcula<span>Listo</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <a class="back" href="index.html">
+    ← Volver a CalculaListo
+  </a>
+
+  <h1>Calculadora de porcentajes</h1>
+
+  <p>
+    Calcula fácilmente cuánto es un porcentaje de una cantidad.
+  </p>
+
+  <div class="box">
+
+    <label for="porcentaje">
+      Porcentaje
+    </label>
+
+    <input
+      id="porcentaje"
+      type="number"
+      placeholder="Ejemplo: 20"
+    >
+
+    <label for="cantidad">
+      Cantidad
+    </label>
+
+    <input
+      id="cantidad"
+      type="number"
+      placeholder="Ejemplo: 150"
+    >
+
+    <button onclick="calcular()">
+      Calcular
+    </button>
+
+    <div id="resultado" class="resultado"></div>
+
+  </div>
+
+  <section class="info">
+
+    <h2>¿Cómo calcular un porcentaje?</h2>
+
+    <p>
+      Para calcular un porcentaje hay que multiplicar la cantidad
+      por el porcentaje y dividir el resultado entre 100.
+    </p>
+
+    <p>
+      Por ejemplo, el 20% de 150 es:
+    </p>
+
+    <p>
+      <strong>150 × 20 ÷ 100 = 30</strong>
+    </p>
+
+    <p>
+      Por tanto, el 20% de 150 es 30.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 CalculaListo
+</footer>
+
+<script>
+
+function calcular() {
+
+  const porcentaje =
+    parseFloat(document.getElementById("porcentaje").value);
+
+  const cantidad =
+    parseFloat(document.getElementById("cantidad").value);
+
+  const resultado =
+    document.getElementById("resultado");
+
+  if (isNaN(porcentaje) || isNaN(cantidad)) {
+
+    resultado.style.display = "block";
+
+    resultado.innerHTML =
+      "Introduce los dos valores.";
+
+    return;
+  }
+
+  const calculo =
+    cantidad * porcentaje / 100;
+
+  resultado.style.display = "block";
+
+  resultado.innerHTML =
+    porcentaje + "% de " +
+    cantidad +
+    " = " +
+    calculo;
+
+}
+
+</script>
+
+</body>
+</html>
